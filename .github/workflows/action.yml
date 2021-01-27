@@ -17,11 +17,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Setup Node.js
         uses: actions/setup-node@main
         with:
           node-version: '14'
+
       - name: Install dependencies
         run: npm install
+
       - name: Build
-        run: node index.js MAIL=${secrets.U_MAIL} PASSWORD=${secrets.U_PASSWORD}
+        run: node index.js
+        env:
+          U_MAIL: ${{ secrets.U_MAIL }}
+          U_PASSWORD: ${{ secrets.U_PASSWORD }}
