@@ -1,4 +1,4 @@
-name: 'Weixin Developers Topic Bot'
+name: 'schedule'
 
 on:
   push:
@@ -25,5 +25,3 @@ jobs:
         run: npm install
       - name: Build
         run: node index.js
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
