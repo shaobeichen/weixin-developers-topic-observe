@@ -1,6 +1,3 @@
-/**
- * 华为壹刻传媒锁屏壁纸爬虫接口
- */
 const fs = require("fs")
 const qs = require("qs")
 const axios = require('axios')
