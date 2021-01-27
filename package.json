@@ -1,0 +1,27 @@
+{
+  "name": "weixin-developers-topic-observe",
+  "version": "1.0.0",
+  "description": "监听微信开发社区热门话题文章更新，给自己邮箱发送邮件进行通知",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeachZhou/weixin-developers-topic-observe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeachZhou/weixin-developers-topic-observe/issues"
+  },
+  "homepage": "https://github.com/LeachZhou/weixin-developers-topic-observe#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "fs": "0.0.1-security",
+    "nodemailer": "^6.4.17",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "qs": "^6.9.6"
+  }
+}
