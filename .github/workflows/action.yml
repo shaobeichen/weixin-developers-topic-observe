@@ -24,4 +24,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: node index.js
+        run: node index.js MAIL=${secrets.U_MAIL} PASSWORD=${secrets.U_PASSWORD}
