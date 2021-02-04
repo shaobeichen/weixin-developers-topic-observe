@@ -1,5 +1,3 @@
-# weixin-developers-topic-observe
-
 <p align="center">
 <img src="https://user-images.githubusercontent.com/18715564/106840892-01903b80-66dc-11eb-8631-0b6ebeb286c6.png" alt="weixin" width="500">
 </p>
