@@ -1,7 +1,7 @@
 # weixin-developers-topic-observe
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/18715564/106840809-d9a0d800-66db-11eb-939f-9523bbdbda5b.png" alt="weixin" width="500">
+<img src="https://user-images.githubusercontent.com/18715564/106840892-01903b80-66dc-11eb-8631-0b6ebeb286c6.png" alt="weixin" width="500">
 </p>
 <h1 align="center">weixin-developers-topic-observe</h1>
 
