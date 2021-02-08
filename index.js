@@ -28,21 +28,27 @@ const getTopicList = async () => {
 const main = async () => {
     let oldContentObject = null
     const path = await fs.readdirSync('./')
-    if (path.includes('archive.json')) {
-        const content = fs.readFileSync('./archive.json')
-        oldContentObject = JSON.parse(content.toString())
+
+    for (const v of path) {
+        if (/\d{13}\.json/.test(v)) {
+            const content = fs.readFileSync(`./${v}`)
+            oldContentObject = JSON.parse(content.toString())
+            fs.unlinkSync(`./${v}`)
+            break
+        }
     }
+
     const { data } = await getTopicList()
     if (!data) return
     // 如果有更新，邮件通知
-    if (oldContentObject.count < data.count) {
+    if (oldContentObject && oldContentObject.count < data.count) {
         const recipient = config.email.user
         const subject = '微信社区热门话题 | 最新话题已更新，快来看看吧！'
         const html = data.rows[0].Title || subject
         sendMail(recipient, subject, html)
     }
     // 保存文件
-    const filename = 'archive.json'
+    const filename = `${+new Date()}.json`
     await fs.writeFileSync(`./${filename}`, JSON.stringify(data))
     console.log(`===已保存${filename}===`)
 }
