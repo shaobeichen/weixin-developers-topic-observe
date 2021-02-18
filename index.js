@@ -42,11 +42,11 @@ const main = async () => {
         const subject = '微信社区热门话题 | 最新话题已更新，快来看看吧！'
         const html = data.rows[0].Title || subject
         sendMail(recipient, subject, html)
+        // 保存文件
+        const filename = 'archive.json'
+        await fs.writeFileSync(`./${filename}`, JSON.stringify(data))
+        console.log(`===已保存${filename}===`)
     }
-    // 保存文件
-    const filename = 'archive.json'
-    await fs.writeFileSync(`./${filename}`, JSON.stringify(data))
-    console.log(`===已保存${filename}===`)
 }
 
 main()
