@@ -28,6 +28,10 @@ jobs:
 
       - name: Build
         run: |
+          git config --global user.email "leachzhou@163.com"
+          git config --global user.name "LeachZhou"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
           node index.js
           git add .
           git commit -m "update by github action"
