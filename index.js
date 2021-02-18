@@ -29,13 +29,9 @@ const main = async () => {
     let oldContentObject = null
     const path = await fs.readdirSync('./')
 
-    for (const v of path) {
-        if (/\d{13}\.json/.test(v)) {
-            const content = fs.readFileSync(`./${v}`)
-            oldContentObject = JSON.parse(content.toString())
-            fs.unlinkSync(`./${v}`)
-            break
-        }
+    if (path.includes('archive.json')) {
+        const content = fs.readFileSync('./archive.json')
+        oldContentObject = JSON.parse(content.toString())
     }
 
     const { data } = await getTopicList()
@@ -48,7 +44,7 @@ const main = async () => {
         sendMail(recipient, subject, html)
     }
     // 保存文件
-    const filename = `${+new Date()}.json`
+    const filename = 'archive.json'
     await fs.writeFileSync(`./${filename}`, JSON.stringify(data))
     console.log(`===已保存${filename}===`)
 }
