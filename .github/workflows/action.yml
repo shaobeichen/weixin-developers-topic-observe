@@ -34,7 +34,7 @@ jobs:
           git pull --rebase
           node index.js
           git add .
-          git commit -m "update by github action"
+          git diff-index --quiet HEAD || git commit -m "update by github action"
           git push
         env:
           U_MAIL: ${{ secrets.U_MAIL }}
