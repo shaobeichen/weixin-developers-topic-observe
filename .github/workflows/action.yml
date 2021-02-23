@@ -35,7 +35,7 @@ jobs:
           node index.js
           git add .
           # git diff-index --quiet HEAD || 
-          git commit -m "update by github action" && git push
+          git commit -m "Update by github action" && git push
         env:
           U_MAIL: ${{ secrets.U_MAIL }}
           U_PASSWORD: ${{ secrets.U_PASSWORD }}
