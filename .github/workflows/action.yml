@@ -33,8 +33,7 @@ jobs:
           git remote set-url origin https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           node index.js
-          git add .
-          git diff-index --quiet HEAD || git commit -m "Update by github action" && git push
+          git add . || git commit -m "Update by github action" && git push
         env:
           U_MAIL: ${{ secrets.U_MAIL }}
           U_PASSWORD: ${{ secrets.U_PASSWORD }}
