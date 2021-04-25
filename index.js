@@ -42,7 +42,7 @@ const main = async () => {
         const subject = '微信社区热门话题 | 最新话题已更新，快来看看吧！'
         const prefix = 'https://developers.weixin.qq.com/community/develop/doc/'
         const url = `${prefix}${data.rows[0].DocId}`
-        const html = `<div>${data.rows[0].Title}<div><a herf='${url}'>url</a></div></div>` || subject
+        const html = `<div>${data.rows[0].Title}<div><a herf='${url}' target="_blank">${url}</a></div></div>` || subject
         sendMail(recipient, subject, html)
         // 保存文件
         const filename = 'archive.json'
