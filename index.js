@@ -37,10 +37,12 @@ const main = async () => {
     const { data } = await getTopicList()
     if (!data) return
     // 如果有更新，邮件通知
-    if (oldContentObject && oldContentObject.count < data.count) {
+    if (true || oldContentObject && oldContentObject.count < data.count) {
         const recipient = config.email.user
         const subject = '微信社区热门话题 | 最新话题已更新，快来看看吧！'
-        const html = data.rows[0].Title || subject
+        const prefix = 'https://developers.weixin.qq.com/community/develop/doc/'
+        const url = `${prefix}${data.rows[0].DocId}`
+        const html = `<div>${data.rows[0].Title}<div><a herf='${url}'>url</a></div></div>` || subject
         sendMail(recipient, subject, html)
         // 保存文件
         const filename = 'archive.json'
