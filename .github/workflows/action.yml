@@ -28,8 +28,8 @@ jobs:
 
       - name: Build
         run: |
-          git config --global user.email "leachzhou@163.com"
-          git config --global user.name "LeachZhou"
+          git config --global user.email "shaobeichen@outlook.com"
+          git config --global user.name "shaobeichen"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           node index.js
