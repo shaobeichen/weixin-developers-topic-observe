@@ -38,6 +38,7 @@ var sendMail = function (recipient, subject, html) {
     }, function (error, response) {
         if (error) {
             console.log(error)
+            throw new Error(error)
         }
         console.log('发送成功')
     })
