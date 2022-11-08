@@ -1,0 +1,38 @@
+name: 'mail'
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 1 1 * '
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      TZ: Asia/Shanghai
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: |
+          git config --global user.email "shaobeichen@outlook.com"
+          git config --global user.name "shaobeichen"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
+          node mail-test.js
+        env:
+          U_MAIL: ${{ secrets.U_MAIL }}
+          U_PASSWORD: ${{ secrets.U_PASSWORD }}
